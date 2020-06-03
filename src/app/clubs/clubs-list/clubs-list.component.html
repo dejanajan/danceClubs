@@ -1,0 +1,53 @@
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 box">
+        <ng-container matColumnDef="clubId">
+            <th mat-header-cell *matHeaderCellDef> ClubID </th>
+            <td mat-cell *matCellDef="let element"> {{element.clubId}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="clubName">
+            <th mat-header-cell *matHeaderCellDef> ClubName </th>
+            <td mat-cell *matCellDef="let element"> {{element.clubName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> City </th>
+            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="contactPerson">
+            <th mat-header-cell *matHeaderCellDef> Contact Person </th>
+            <td mat-cell *matCellDef="let element"> {{element.contactPerson}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telephone">
+            <th mat-header-cell *matHeaderCellDef> Telephone </th>
+            <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row"><button mat-button color="primary" (click)="openDialog(row)">Edit</button></td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row"><button mat-button color="warn" (click)="deleteClub(row)">Delete</button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+    </table>
+    <mat-paginator class="paginator"  #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

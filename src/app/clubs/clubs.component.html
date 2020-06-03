@@ -1,0 +1,53 @@
+<mat-card class="card">
+    <mat-card-header>
+        <div mat-card-avatar class="header"></div>
+        <mat-card-title>Dance Club</mat-card-title>
+        <mat-card-subtitle>Please enter a new dance club.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="form" [formGroup]="dClubDetails">
+            <mat-form-field class="full-width">
+            <mat-label>Club Name</mat-label>
+                <input formControlName="ClubName" matInput placeholder="Ex. Calipso" required>
+                <mat-error *ngIf="dClubDetails.get('ClubName').hasError('required')">ClubName is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="full-width">
+                <mat-label>City</mat-label>
+                <input formControlName="City" matInput placeholder="Ex. Beograd" required>
+                <mat-error *ngIf="dClubDetails.get('City').hasError('required')">City is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Address</mat-label>
+                <input formControlName="Address" matInput placeholder="Ex. Generala Tranijea 45" required>
+                <mat-error *ngIf="dClubDetails.get('Address').hasError('required')">Address is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Contact Person</mat-label>
+                <input formControlName="ContactPerson" matInput placeholder="Ex. Petar Matic" required>
+                <mat-error *ngIf="dClubDetails.get('ContactPerson').hasError('required')">ContactPerson is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Telephone</mat-label>
+                <span matPrefix>+1 &nbsp;</span>
+                <input formControlName="Telephone" type="tel" matInput placeholder="555-555-1234" pattern="^[0-9]*$" required>
+                <mat-error *ngIf="dClubDetails.get('Telephone').hasError('required')">Telephone is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input formControlName="Email" matInput type="email" placeholder="Ex. pat@example.com" required>
+                <mat-error *ngIf="dClubDetails.get('Email').hasError('required')">Email is required</mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions class="button">
+        <button type="submit" (click)="addClub(dClubDetails)" [disabled]="!dClubDetails.valid" mat-raised-button>Add</button>
+    </mat-card-actions>
+</mat-card>
+
+<app-clubs-list [childComp]="parentComp"></app-clubs-list>
+

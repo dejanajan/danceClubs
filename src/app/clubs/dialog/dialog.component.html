@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Update Choosen Club Data</h2>
+
+<mat-dialog-content [formGroup]="updateClubForm">
+    <mat-form-field class="full-width">
+        <mat-label>Club Name</mat-label>
+            <input formControlName="ClubName" matInput placeholder="Ex. Calipso">
+    </mat-form-field>
+    
+        <mat-form-field class="full-width">
+            <mat-label>City</mat-label>
+            <input formControlName="City" matInput placeholder="Ex. Beograd">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <input formControlName="Address" matInput placeholder="Ex. Generala Tranijea 45">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Contact Person</mat-label>
+            <input formControlName="ContactPerson" matInput placeholder="Ex. Petar Matic">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+1 &nbsp;</span>
+            <input formControlName="Telephone" type="tel" matInput placeholder="555-555-1234" pattern="^[0-9]*$">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input formControlName="Email" matInput type="email" placeholder="Ex. pat@example.com">
+        </mat-form-field> 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="close()">Close</button>
+    <button mat-button color="primary" (click)="updateClub()">Save</button>
+</mat-dialog-actions>
